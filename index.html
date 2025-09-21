@@ -552,24 +552,23 @@
                     <!-- Contact Form -->
                     <div class="bg-white dark:bg-gray-700 p-8 rounded-2xl shadow-lg">
                         <h3 class="text-xl font-bold mb-6">Send a Message</h3>
-                        <form class="space-y-4">
-                            <div>
-                                <label for="name"  class="block text-sm font-medium mb-2">Your Name</label>
-                                <input type="text" id="name" name="name" class="w-full px-4 py-3 text-base border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-white dark:bg-gray-600 text-gray-900 dark:text-white">
-                            </div>
-                            <div>
-                                <label for="email" class="block text-sm font-medium mb-2">Email Address</label>
-                                <input type="email" id="email" name="email" class="w-full px-4 py-3 text-base border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-white dark:bg-gray-600 text-gray-900 dark:text-white">
-                            </div>
-                        
-                            <div>
-                                <label for="message"  class="block text-sm font-medium mb-2">Message</label>
-                                <textarea id="message" name="message" rows="4" class="w-full px-4 py-3 text-base border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-white dark:bg-gray-600 text-gray-900 dark:text-white resize-none"></textarea>
-                            </div>
-                            <button type="submit" class="w-full bg-gradient-to-r from-primary to-accent text-white py-3 rounded-lg font-semibold hover:shadow-lg transition-all duration-300 transform hover:scale-105">
-                                Send Message
-                            </button>
-                        </form>
+                    <form id="contactForm" class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-sm font-medium mb-2">Name</label>
+                            <input type="text" id="name" name="name" class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-base focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-colors" required>
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium mb-2">Email</label>
+                            <input type="email" id="email" name="email" class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-base focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-colors" required>
+                        </div>
+                        <div>
+                            <label for="message" class="block text-sm font-medium mb-2">Message</label>
+                            <textarea id="message" name="message" rows="5" class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-base focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-colors" required></textarea>
+                        </div>
+                        <button type="submit" class="w-full px-6 py-3 bg-primary text-white rounded-lg hover:bg-opacity-90 transition-colors">
+                            Send Message
+                        </button>
+                    </form>
                     </div>
                 </div>
             </div>
@@ -618,7 +617,7 @@
             event.preventDefault(); // Prevent default form submission
 
             // Send form data using EmailJS
-            emailjs.sendForm("service_4ywubho", "template_bsduria", this)
+            emailjs.sendForm("service_kxia5gv", "template_bsduria", this)
                 .then(function (response) {
                     console.log("SUCCESS!", response);
                     alert("Message sent successfully!");
@@ -789,6 +788,7 @@
     </script>
 </body>
 </html>
+
 
 
 
