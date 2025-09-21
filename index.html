@@ -554,11 +554,11 @@
                         <h3 class="text-xl font-bold mb-6">Send a Message</h3>
                         <form class="space-y-4">
                             <div>
-                                <label for="name" class="block text-sm font-medium mb-2">Your Name</label>
+                                <label for="name" name="name" class="block text-sm font-medium mb-2">Your Name</label>
                                 <input type="text" id="name" class="w-full px-4 py-3 text-base border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-white dark:bg-gray-600 text-gray-900 dark:text-white">
                             </div>
                             <div>
-                                <label for="email" class="block text-sm font-medium mb-2">Email Address</label>
+                                <label for="email" name="email" class="block text-sm font-medium mb-2">Email Address</label>
                                 <input type="email" id="email" class="w-full px-4 py-3 text-base border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-white dark:bg-gray-600 text-gray-900 dark:text-white">
                             </div>
                             <div>
@@ -566,7 +566,7 @@
                                 <input type="text" id="subject" class="w-full px-4 py-3 text-base border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-white dark:bg-gray-600 text-gray-900 dark:text-white">
                             </div>
                             <div>
-                                <label for="message" class="block text-sm font-medium mb-2">Message</label>
+                                <label for="message" name="message" class="block text-sm font-medium mb-2">Message</label>
                                 <textarea id="message" rows="4" class="w-full px-4 py-3 text-base border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-white dark:bg-gray-600 text-gray-900 dark:text-white resize-none"></textarea>
                             </div>
                             <button type="submit" class="w-full bg-gradient-to-r from-primary to-accent text-white py-3 rounded-lg font-semibold hover:shadow-lg transition-all duration-300 transform hover:scale-105">
@@ -609,6 +609,33 @@
             </div>
         </div>
     </footer>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+<script type="text/javascript">
+    (function () {
+        emailjs.init("ptZwy1fTOzossLUMK"); // Your EmailJS Public Key
+    })();
+
+    document.addEventListener("DOMContentLoaded", function () {
+        document.getElementById("contactForm").addEventListener("submit", function (event) {
+            event.preventDefault(); // Prevent default form submission
+
+            // Send form data using EmailJS
+            emailjs.sendForm("service_4ywubho", "template_bsduria", this)
+                .then(function (response) {
+                    console.log("SUCCESS!", response);
+                    alert("Message sent successfully!");
+
+                    // Reset the form only after a successful send
+                    document.getElementById("contactForm").reset();
+                })
+                .catch(function (error) {
+                    console.log("FAILED...", error);
+                    alert("Failed to send message: " + error.text);
+                });
+        });
+    });
+</script>
 
     <script>
         // Dark mode detection
@@ -765,3 +792,4 @@
     </script>
 </body>
 </html>
+
